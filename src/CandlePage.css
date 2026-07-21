@@ -1,0 +1,719 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+.candle-container{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:
+    radial-gradient(circle at top,
+    #4b114e,
+    #14031f 60%,
+    #050008);
+
+    transition:1s;
+}
+
+.candle-container.celebrate{
+    background:
+    radial-gradient(circle,
+    #ff8ec7,
+    #7d0d66,
+    #120019);
+}
+
+/* ===========================
+   SCREEN FLASH
+=========================== */
+
+.screen-flash{
+
+    position:absolute;
+    inset:0;
+
+    background:white;
+
+    opacity:.35;
+
+    animation:flash .7s forwards;
+
+    pointer-events:none;
+
+    z-index:30;
+}
+
+@keyframes flash{
+
+0%{
+opacity:.7;
+}
+
+100%{
+opacity:0;
+}
+
+}
+
+/* ===========================
+   STARS
+=========================== */
+
+.stars{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.stars span{
+
+position:absolute;
+
+font-size:18px;
+
+opacity:.3;
+
+animation:twinkle 3s infinite;
+
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.candle-container h1{
+
+font-size:clamp(32px,5vw,60px);
+
+color:white;
+
+text-align:center;
+
+margin-bottom:20px;
+
+text-shadow:
+
+0 0 15px hotpink,
+
+0 0 40px deeppink;
+
+}
+
+.subtitle{
+
+font-size:clamp(18px,3vw,28px);
+
+color:#ffd6ef;
+
+margin-bottom:35px;
+
+text-align:center;
+
+}
+
+/* ===========================
+   CANDLE
+=========================== */
+
+.candle-wrapper{
+
+position:relative;
+
+width:340px;
+height:430px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+cursor:pointer;
+
+animation:floatCandle 3s ease-in-out infinite;
+
+}
+
+.candle-img{
+
+position:absolute;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:210px;
+
+z-index:3;
+
+filter:
+drop-shadow(0 15px 25px rgba(0,0,0,.4));
+
+}
+
+/* ===========================
+   GLOW
+=========================== */
+
+.glow{
+
+position:absolute;
+
+top:-30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:160px;
+height:160px;
+
+border-radius:50%;
+
+background:rgba(255,220,0,.30);
+
+filter:blur(60px);
+
+animation:glowPulse 2s infinite;
+
+z-index:1;
+
+}
+
+@keyframes glowPulse{
+
+0%{
+
+transform:
+translateX(-50%)
+scale(.9);
+
+}
+
+50%{
+
+transform:
+translateX(-50%)
+scale(1.1);
+
+}
+
+100%{
+
+transform:
+translateX(-50%)
+scale(.9);
+
+}
+
+}
+
+/* ===========================
+   FLAME
+=========================== */
+
+.flame{
+
+position:absolute;
+
+left:50%;
+
+top:-18px;
+
+transform:translateX(-50%);
+
+width:34px;
+height:65px;
+
+background:
+linear-gradient(
+orange,
+yellow,
+#fffde7);
+
+border-radius:
+50% 50% 50% 50% /
+70% 70% 30% 30%;
+
+cursor:pointer;
+
+z-index:5;
+
+box-shadow:
+0 0 20px orange,
+0 0 40px gold;
+
+animation:flicker .4s infinite alternate;
+
+}
+
+.flame::before{
+
+content:"";
+
+position:absolute;
+
+left:7px;
+
+top:8px;
+
+width:60%;
+height:60%;
+
+background:white;
+
+border-radius:inherit;
+
+opacity:.6;
+
+}
+
+@keyframes flicker{
+
+0%{
+
+transform:
+translateX(-50%)
+rotate(-3deg)
+scale(1);
+
+}
+
+50%{
+
+transform:
+translateX(-50%)
+rotate(3deg)
+scale(1.08);
+
+}
+
+100%{
+
+transform:
+translateX(-50%)
+rotate(-2deg)
+scale(.96);
+
+}
+
+}
+
+/* ===================================
+   SMOKE
+=================================== */
+
+.smoke{
+
+    position:absolute;
+
+    left:50%;
+    top:-15px;
+
+    transform:translateX(-50%);
+
+    font-size:34px;
+
+    z-index:8;
+
+    animation:smokeUp 2.5s forwards;
+
+}
+
+@keyframes smokeUp{
+
+0%{
+
+opacity:0;
+
+transform:
+translateX(-50%)
+translateY(0)
+scale(.5);
+
+}
+
+30%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translateX(-50%)
+translateY(-120px)
+scale(2);
+
+}
+
+}
+
+
+/* ===================================
+   HEARTS
+=================================== */
+
+.hearts{
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:15;
+
+}
+
+.hearts span{
+
+position:absolute;
+
+bottom:-50px;
+
+animation:heartFloat 6s linear infinite;
+
+opacity:.95;
+
+filter:
+drop-shadow(0 0 8px hotpink);
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:
+translateY(0)
+scale(.5)
+rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-110vh)
+rotate(360deg)
+scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ===================================
+   SPARKLES
+=================================== */
+
+.sparkles{
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:14;
+
+}
+
+.sparkles span{
+
+position:absolute;
+
+font-size:22px;
+
+animation:sparkleAnim 2s ease-in-out infinite;
+
+opacity:0;
+
+}
+
+@keyframes sparkleAnim{
+
+0%{
+
+opacity:0;
+
+transform:
+scale(.3)
+rotate(0deg);
+
+}
+
+30%{
+
+opacity:1;
+
+transform:
+scale(1.4)
+rotate(180deg);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+scale(.3)
+rotate(360deg);
+
+}
+
+}
+
+
+/* ===================================
+   WISH BOX
+=================================== */
+
+.wish-box{
+
+margin-top:35px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+z-index:20;
+
+}
+
+.wish-box h2{
+
+font-size:clamp(28px,4vw,44px);
+
+color:#ffe3f4;
+
+text-align:center;
+
+text-shadow:
+
+0 0 15px hotpink,
+
+0 0 35px deeppink,
+
+0 0 60px #ff4fa3;
+
+margin-bottom:25px;
+
+}
+
+
+/* ===================================
+   CELEBRATION GLOW
+=================================== */
+
+.candle-container.celebrate::before{
+
+content:"";
+
+position:absolute;
+
+left:-30%;
+top:-30%;
+
+width:160%;
+height:160%;
+
+background:
+
+radial-gradient(circle,
+rgba(255,255,255,.18),
+transparent 70%);
+
+animation:celebrateGlow 5s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes celebrateGlow{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+/* ===================================
+   STAR TWINKLE
+=================================== */
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.6);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.3);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.6);
+
+}
+
+}
+
+
+/* ===================================
+   FLOAT CANDLE
+=================================== */
+
+@keyframes floatCandle{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+.click-guide{
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    text-shadow:
+        0 0 10px gold,
+        0 0 20px hotpink;
+
+    z-index:20;
+
+    animation:glowText 1.5s infinite;
+
+}
+
+@keyframes glowText{
+
+0%{
+
+opacity:.7;
+
+}
+
+50%{
+
+opacity:1;
+
+text-shadow:
+0 0 20px yellow,
+0 0 35px hotpink;
+
+}
+
+100%{
+
+opacity:.7;
+
+}
+
+}

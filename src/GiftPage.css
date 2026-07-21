@@ -1,0 +1,441 @@
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.gift-container{
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+/* FIRST SCREEN */
+
+
+.gift-screen{
+
+
+    width:100%;
+
+    height:100vh;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    text-align:center;
+
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #ff9a9e,
+
+        #fad0c4
+
+    );
+
+}
+
+
+
+.gift-screen h1{
+
+
+    font-size:45px;
+
+
+    color:white;
+
+
+    margin-bottom:20px;
+
+
+    text-shadow:
+
+    2px 3px 10px rgba(0,0,0,0.3);
+
+
+}
+
+
+
+.gift-screen p{
+
+
+    font-size:25px;
+
+
+    color:white;
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+
+.gift-image{
+
+
+    width:230px;
+
+
+    cursor:pointer;
+
+
+    filter:
+
+    drop-shadow(
+
+    0px 15px 20px rgba(0,0,0,0.3)
+
+    );
+
+}
+
+
+
+
+
+/* FINAL PAGE */
+
+
+.surprise-page{
+
+
+    width:100%;
+
+
+    height:100vh;
+
+
+    background-size:cover;
+
+
+    background-position:center;
+
+
+    background-repeat:no-repeat;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    position:relative;
+
+
+}
+
+
+
+/* DARK IMAGE OVERLAY */
+
+
+.overlay{
+
+
+    position:absolute;
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    background:rgba(0,0,0,0.45);
+
+
+}
+
+
+
+/* MESSAGE CARD */
+
+
+.message-box{
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    width:80%;
+
+
+    max-width:750px;
+
+
+
+    padding:40px;
+
+
+
+    border-radius:25px;
+
+
+
+    background:rgba(255,255,255,0.85);
+
+
+
+    backdrop-filter:blur(8px);
+
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.message-box h1{
+
+
+    font-size:55px;
+
+
+    color:#ff416c;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+.message-box p{
+
+
+    font-size:25px;
+
+
+    color:#333;
+
+
+    line-height:1.6;
+
+
+    margin:15px;
+
+
+}
+
+
+
+
+
+
+/* TABLET */
+
+
+@media(max-width:900px){
+
+
+
+.gift-screen h1{
+
+    font-size:38px;
+
+}
+
+
+
+.gift-image{
+
+    width:200px;
+
+}
+
+
+
+.message-box h1{
+
+    font-size:45px;
+
+}
+
+
+
+.message-box p{
+
+    font-size:22px;
+
+}
+
+
+}
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+
+
+.gift-screen h1{
+
+
+    font-size:30px;
+
+
+    padding:20px;
+
+
+}
+
+
+
+.gift-screen p{
+
+
+    font-size:20px;
+
+
+}
+
+
+
+.gift-image{
+
+
+    width:160px;
+
+
+}
+
+
+
+
+
+.surprise-page{
+
+
+    background-position:center;
+
+
+}
+
+
+
+
+.message-box{
+
+
+    width:90%;
+
+
+    padding:25px;
+
+
+}
+
+
+
+.message-box h1{
+
+
+    font-size:35px;
+
+
+}
+
+
+
+.message-box p{
+
+
+    font-size:18px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+/* VERY SMALL DEVICES */
+
+
+@media(max-width:350px){
+
+
+
+.message-box h1{
+
+
+    font-size:28px;
+
+
+}
+
+
+
+.message-box p{
+
+
+    font-size:16px;
+
+
+}
+
+
+
+.gift-image{
+
+
+    width:140px;
+
+
+}
+
+
+}
