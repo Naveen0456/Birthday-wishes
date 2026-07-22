@@ -1,557 +1,501 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-
+/* ========================= */
+/* MAIN CONTAINER */
+/* ========================= */
 
 .balloon-container{
+    position:relative;
+    width:100%;
+    height:100vh;
+    min-height:600px;
 
-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 
-min-height:600px;
+    overflow:hidden;
+    padding:20px;
 
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-background:linear-gradient(
-135deg,
-#fff5f7,
-#ffd6e7,
-#ffffff,
-#ffe0ec
-);
-
-background-size:400% 400%;
-
-animation:bgMove 12s ease infinite;
-
-overflow:hidden;
-
-padding:20px;
-
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
+/* Dark Shadow Overlay */
 
+.balloon-container::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
 
-@keyframes bgMove{
+    background:rgba(0,0,0,.55);
 
-0%{
-background-position:left;
+    z-index:0;
 }
 
-50%{
-background-position:right;
+/* Keep all content above the overlay */
+
+.balloon-container>*{
+    position:relative;
+    z-index:1;
 }
 
-100%{
-background-position:left;
-}
-
-}
-
-
-
-
+/* ========================= */
+/* TITLE */
+/* ========================= */
 
 .balloon-container h1{
 
-font-size:clamp(30px,5vw,52px);
+    font-size:clamp(30px,5vw,52px);
 
-color:#0d0a0b;
+    color:#ffffff;
 
-margin-bottom:70px;
+    margin-bottom:70px;
 
-text-shadow:2px 2px 12px pink;
+    text-align:center;
 
-text-align:center;
+    text-shadow:
+        0 0 12px rgba(255,255,255,.8),
+        0 0 20px rgba(255,192,203,.6);
 
 }
 
-
-
-
+/* ========================= */
+/* BALLOON AREA */
+/* ========================= */
 
 .balloons{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-gap:clamp(20px,5vw,60px);
+    gap:clamp(20px,5vw,60px);
 
-flex-wrap:wrap;
+    flex-wrap:wrap;
 
 }
 
-
-
-
+/* ========================= */
+/* BALLOON BOX */
+/* ========================= */
 
 .balloon-box{
 
-width:clamp(90px,12vw,140px);
+    width:clamp(90px,12vw,140px);
 
-height:clamp(120px,15vw,170px);
+    height:clamp(120px,15vw,170px);
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-position:relative;
+    position:relative;
 
 }
 
-
-
-
+/* ========================= */
+/* BALLOON */
+/* ========================= */
 
 .balloon{
 
-font-size:clamp(70px,10vw,110px);
+    font-size:clamp(70px,10vw,110px);
 
-cursor:pointer;
+    cursor:pointer;
 
-animation:float 2.2s ease-in-out infinite;
+    animation:float 2.2s ease-in-out infinite;
 
-transition:.3s;
+    transition:.3s;
 
-user-select:none;
+    user-select:none;
+
+    filter:drop-shadow(0 8px 12px rgba(0,0,0,.45));
 
 }
-
-
-
 
 .balloon:hover{
 
-transform:scale(1.15);
+    transform:scale(1.15);
 
 }
 
-
-
-
+/* Floating Animation */
 
 @keyframes float{
 
-0%{
+    0%{
+        transform:translateY(0px);
+    }
 
-transform:translateY(0px);
+    50%{
+        transform:translateY(-18px);
+    }
 
-}
-
-50%{
-
-transform:translateY(-18px);
-
-}
-
-100%{
-
-transform:translateY(0px);
+    100%{
+        transform:translateY(0px);
+    }
 
 }
 
-}
-
-
-
-
-
+/* ========================= */
 /* POP EFFECT */
-
+/* ========================= */
 
 .pop{
 
-position:absolute;
+    position:absolute;
 
-font-size:clamp(45px,8vw,70px);
+    font-size:clamp(45px,8vw,70px);
 
-animation:blast .5s forwards;
+    animation:blast .5s forwards;
 
 }
-
-
-
 
 @keyframes blast{
 
-0%{
+    0%{
+        transform:scale(.2);
+        opacity:0;
+    }
 
-transform:scale(.2);
+    40%{
+        transform:scale(1.3);
+        opacity:1;
+    }
 
-opacity:0;
-
-}
-
-40%{
-
-transform:scale(1.3);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:scale(2.2);
-
-opacity:0;
+    100%{
+        transform:scale(2.2);
+        opacity:0;
+    }
 
 }
 
-}
-
-
-
-
-
-
+/* ========================= */
 /* MESSAGE BOX */
-
+/* ========================= */
 
 .message{
 
-position:absolute;
+    position:absolute;
 
-min-width:130px;
+    min-width:130px;
 
-max-width:250px;
+    max-width:250px;
 
-padding:18px 28px;
+    padding:18px 28px;
 
-background:#fff;
+    background:rgba(255,255,255,.95);
 
-border-radius:30px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 
-font-size:clamp(18px,3vw,30px);
+    border-radius:30px;
 
-font-weight:bold;
+    font-size:clamp(18px,3vw,30px);
 
-text-align:center;
+    font-weight:bold;
 
-color:#ff2d75;
+    text-align:center;
 
-box-shadow:
+    color:#ff2d75;
 
-0 10px 30px rgba(255,105,180,.35),
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 25px rgba(255,182,193,.4);
 
-0 0 25px rgba(255,182,193,.4);
+    animation:textAppear .6s ease;
 
-animation:textAppear .6s ease;
-
-z-index:5;
+    z-index:5;
 
 }
-
-
-
-
 
 .message::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-bottom:-12px;
+    bottom:-12px;
 
-left:35px;
+    left:35px;
 
-width:24px;
+    width:24px;
 
-height:24px;
+    height:24px;
 
-background:white;
+    background:rgba(255,255,255,.95);
 
-transform:rotate(45deg);
+    transform:rotate(45deg);
 
-border-radius:3px;
+    border-radius:3px;
 
 }
 
-
-
-
-
+/* ========================= */
 /* MESSAGE ANIMATION */
+/* ========================= */
 
 @keyframes textAppear{
 
-from{
+    from{
 
-opacity:0;
+        opacity:0;
 
-transform:scale(.5);
+        transform:scale(.5);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
 
 }
-
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-
-
-
-
-
 
 /* ========================= */
 /* TABLET RESPONSIVE */
 /* ========================= */
 
-
 @media(max-width:900px){
 
+    .balloon-container h1{
 
-.balloon-container h1{
+        margin-bottom:50px;
 
-margin-bottom:50px;
+        font-size:42px;
 
-}
+    }
 
+    .balloons{
 
-.balloons{
+        gap:35px;
 
-gap:35px;
+    }
 
-}
+    .balloon-box{
 
+        width:120px;
 
-.balloon-box{
+        height:150px;
 
-width:120px;
+    }
 
-height:150px;
+    .balloon{
 
-}
+        font-size:90px;
 
-
-.balloon{
-
-font-size:90px;
-
-}
-
+    }
 
 }
-
-
-
-
-
-
 
 /* ========================= */
 /* MOBILE RESPONSIVE */
 /* ========================= */
 
-
 @media(max-width:600px){
 
+    .balloon-container{
 
-.balloon-container{
+        padding:15px;
 
-padding:15px;
+    }
 
-}
+    .balloon-container h1{
 
+        font-size:32px;
 
+        margin-bottom:40px;
 
-.balloon-container h1{
+        padding:0 10px;
 
-font-size:32px;
+    }
 
-margin-bottom:40px;
+    .balloons{
 
-}
+        gap:15px;
 
+        width:100%;
 
+        justify-content:center;
 
-.balloons{
+    }
 
-gap:15px;
+    .balloon-box{
 
-width:100%;
+        width:90px;
 
-}
+        height:120px;
 
+    }
 
+    .balloon{
 
-.balloon-box{
+        font-size:70px;
 
-width:90px;
+    }
 
-height:120px;
+    .message{
 
-}
+        min-width:120px;
 
+        max-width:180px;
 
+        padding:14px 20px;
 
-.balloon{
+        font-size:18px;
 
-font-size:70px;
+    }
 
-}
+    .message::before{
 
+        left:25px;
 
+        width:18px;
 
-.message{
+        height:18px;
 
-min-width:120px;
+        bottom:-9px;
 
-padding:14px 20px;
-
-font-size:18px;
-
-}
-
-
-
-
-
-.message::before{
-
-left:25px;
-
-width:18px;
-
-height:18px;
-
-bottom:-9px;
+    }
 
 }
-
-
-
-}
-
-
-
-
-
-
 
 /* ========================= */
 /* SMALL MOBILE */
 /* ========================= */
 
-
 @media(max-width:380px){
 
+    .balloon-container{
 
-.balloon-container h1{
+        padding:10px;
 
-font-size:26px;
+    }
 
-margin-bottom:30px;
+    .balloon-container h1{
+
+        font-size:26px;
+
+        margin-bottom:30px;
+
+        line-height:1.3;
+
+    }
+
+    .balloons{
+
+        gap:10px;
+
+    }
+
+    .balloon-box{
+
+        width:75px;
+
+        height:100px;
+
+    }
+
+    .balloon{
+
+        font-size:60px;
+
+    }
+
+    .message{
+
+        min-width:100px;
+
+        max-width:150px;
+
+        font-size:16px;
+
+        padding:12px 16px;
+
+    }
 
 }
-
-
-
-.balloons{
-
-gap:10px;
-
-}
-
-
-
-.balloon-box{
-
-width:75px;
-
-height:100px;
-
-}
-
-
-
-.balloon{
-
-font-size:60px;
-
-}
-
-
-
-.message{
-
-font-size:16px;
-
-padding:12px 16px;
-
-}
-
-
-
-}
-
-
-
-
-
-
 
 /* ========================= */
 /* LARGE DESKTOP */
 /* ========================= */
 
-
 @media(min-width:1400px){
 
+    .balloon-container h1{
 
-.balloon-container h1{
+        font-size:60px;
 
-font-size:60px;
+    }
+
+    .balloon-box{
+
+        width:160px;
+
+        height:190px;
+
+    }
+
+    .balloon{
+
+        font-size:125px;
+
+    }
+
+    .balloons{
+
+        gap:80px;
+
+    }
 
 }
 
-
-
-.balloon-box{
-
-width:160px;
-
-height:190px;
-
-}
-
-
+/* ========================= */
+/* EXTRA EFFECTS */
+/* ========================= */
 
 .balloon{
 
-font-size:125px;
+    transition:transform .3s ease,
+               filter .3s ease;
 
 }
 
+.balloon:hover{
 
+    transform:scale(1.18);
 
-.balloons{
-
-gap:80px;
+    filter:
+        drop-shadow(0 0 12px rgba(255,255,255,.8))
+        drop-shadow(0 0 20px rgba(255,105,180,.8));
 
 }
 
+.message{
 
+    transition:.3s;
+
+}
+
+.message:hover{
+
+    transform:scale(1.05);
 
 }

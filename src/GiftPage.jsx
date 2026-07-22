@@ -1,9 +1,9 @@
 import "./GiftPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import gift from "./assets/Giftbox.png";
-import birthdayPhoto from "./assets/naveenteddy.jpeg";
+import birthdayPhoto from "./assets/DSC.jpg";
 
 
 function GiftPage() {
@@ -232,7 +232,7 @@ function GiftPage() {
 
                         transition={{
 
-                            delay:0.5,
+                            delay:5,
 
                             duration:1
 
@@ -254,7 +254,8 @@ function GiftPage() {
 
                         <p>
 
-                            Wishing you lots of happiness, success and beautiful moments in your life ✨
+                            Happy Birthday, my future wife! 🎉
+Every day brings us one step closer to the beautiful journey we'll share together. I thank God for bringing you into my life, and I can't wait to call you my wife. May your special day be filled with love, laughter, and all the happiness your heart desires. Wishing you a wonderful birthday and an even more wonderful future with me. ❤️🎂
 
                         </p>
 

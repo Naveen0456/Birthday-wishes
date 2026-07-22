@@ -129,35 +129,17 @@
 
 
 .surprise-page{
-
-
     width:100%;
-
-
     height:100vh;
 
-
-    background-size:cover;
-
-
-    background-position:center;
-
-
-    background-repeat:no-repeat;
-
+    background-size: 80%;     /* Increase or decrease */
+    background-position: center top; /* Focus on upper part */
+    background-repeat: no-repeat;
 
     display:flex;
-
-
     justify-content:center;
-
-
     align-items:center;
-
-
     position:relative;
-
-
 }
 
 
